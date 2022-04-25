@@ -13,3 +13,8 @@ test('withdraw 100', () => {
     bankAccount.deposit(300.00)
     expect(bankAccount.withdraw(100.00)).toBeCloseTo(200.00)
 })
+
+test('withdraw should fail if balance < amount being withdrawn', () => {
+    bankAccount = new BankAccount
+    expect(() => bankAccount.withdraw(100)).toThrow("Trying to withdraw more money than you have!")
+})
