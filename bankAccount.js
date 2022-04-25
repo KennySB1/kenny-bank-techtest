@@ -1,6 +1,7 @@
 class BankAccount {
     constructor(balance = 0.00) {
         this.balance = balance
+        // this.accountStatements = new AccountStatements
     }
 
     deposit(amount) {
