@@ -15,11 +15,11 @@ class AccountStatements {
         if (transactionType === "deposit") {
             statementToAdd += `${this.#currentDate()} || ${amount} || || ${balance}`
             this.accountStatements.push(statementToAdd)
-            console.log(statementToAdd)
+
         } else if (transactionType === "withdrawal") {
             statementToAdd += `${this.#currentDate()} || || ${amount} || ${balance}`
             this.accountStatements.push(statementToAdd)
-            console.log(statementToAdd)
+
         }
     }
 
