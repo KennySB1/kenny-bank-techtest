@@ -21,6 +21,19 @@ test('withdraw should fail if balance < amount being withdrawn', () => {
 })
 
 test('statements should start with only formatting', () => {
-    const bankAccount = new AccountStatements
-    expect(bankAccount.statements()).toBe("date || credit || debit || balance\n")
+    const bankAccount = new BankAccount
+    expect(bankAccount.showAccountStatements()).toBe("date || credit || debit || balance\n")
+})
+
+test('statements should work after a deposit', () => {
+    const bankAccount = new BankAccount()
+    bankAccount.deposit(100)
+    expect(bankAccount.showAccountStatements()).toBe("date || credit || debit || balance\n2022/3/26 || 100 || || 100\n")
+})
+
+test('statements should work after a withdrawal', () => {
+    const bankAccount = new BankAccount()
+    bankAccount.deposit(100)
+    bankAccount.withdraw(100)
+    expect(bankAccount.showAccountStatements()).toBe("date || credit || debit || balance\n2022/3/26 || 100 || || 100\n2022/3/26 || || 100 || 0\n")
 })
