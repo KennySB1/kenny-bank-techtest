@@ -1,17 +1,17 @@
 class AccountStatements {
     constructor() {
-        this.accountStatements = ["date || credit || debit || balance"]
+        this.accountStatements = [this.#format()]
     }
 
     statements() {
         let statements = ""
         this.accountStatements.forEach(statement => statements += `${statement}\n`)
-        console.log(statements)
         return statements
     }
 
     newStatement(balance, amount, transactionType) {
         let statementToAdd = ""
+
         if (transactionType === "deposit") {
             statementToAdd += `${this.#currentDate()} || ${amount} || || ${balance}`
             this.accountStatements.push(statementToAdd)
@@ -19,7 +19,6 @@ class AccountStatements {
         } else if (transactionType === "withdrawal") {
             statementToAdd += `${this.#currentDate()} || || ${amount} || ${balance}`
             this.accountStatements.push(statementToAdd)
-
         }
     }
 
@@ -30,8 +29,10 @@ class AccountStatements {
         let day = dateObj.getUTCDate()
 
         return year + "/" + month + "/" + day
+        }
 
+        #format() {
+           return "date || credit || debit || balance"
+        }
     }
-
-}
 module.exports = AccountStatements
