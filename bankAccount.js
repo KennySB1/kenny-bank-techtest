@@ -22,5 +22,6 @@ class BankAccount {
     }
 
 }
+
 module.exports = BankAccount
 const AccountStatements = require('./accountStatements')

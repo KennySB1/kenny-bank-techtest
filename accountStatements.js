@@ -29,10 +29,11 @@ class AccountStatements {
         let day = dateObj.getUTCDate()
 
         return year + "/" + month + "/" + day
-        }
-
-        #format() {
-           return "date || credit || debit || balance"
-        }
     }
+
+    #format() {
+        return "date || credit || debit || balance"
+    }
+}
+
 module.exports = AccountStatements
